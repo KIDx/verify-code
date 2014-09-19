@@ -20,6 +20,10 @@
     "vcode",
     "verify code"
   ],
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/KIDx/verify-code"
+  }
   "_id": "verify-code@0.1.1",
   "scripts": {},
   "_shasum": "cc0fb2669a75b7d1c00eaee69a2cbc7fb1b52a9a",
