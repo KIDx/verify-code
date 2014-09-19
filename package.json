@@ -1,0 +1,44 @@
+{
+  "author": {
+    "name": "KIDx",
+    "email": "972169909@qq.com"
+  },
+  "name": "verify-code",
+  "version": "0.1.1",
+  "description": "create verify code using canvas",
+  "main": "verify-code.js",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "canvas": "*"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "verify",
+    "code",
+    "vcode",
+    "verify code"
+  ],
+  "_id": "verify-code@0.1.1",
+  "scripts": {},
+  "_shasum": "cc0fb2669a75b7d1c00eaee69a2cbc7fb1b52a9a",
+  "_from": "verify-code@*",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "kidx",
+    "email": "972169909@qq.com"
+  },
+  "maintainers": [
+    {
+      "name": "kidx",
+      "email": "972169909@qq.com"
+    }
+  ],
+  "dist": {
+    "shasum": "cc0fb2669a75b7d1c00eaee69a2cbc7fb1b52a9a",
+    "tarball": "http://registry.npmjs.org/verify-code/-/verify-code-0.1.1.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/verify-code/-/verify-code-0.1.1.tgz"
+}

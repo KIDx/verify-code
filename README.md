@@ -1,4 +1,13 @@
-verify-code
-===========
+###Install
+```
+npm install verify-code
+```
 
-create verify code using canvas
+###Usage
+```
+require('verify-code').getCode(function(vcode, img){
+  console.log("verify code: "+vcode);
+  console.log("img: "+img);
+});
+
+```
