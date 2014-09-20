@@ -1,14 +1,20 @@
 var Canvas = require('canvas');
 
-var getRandom = function(start, end) {
+/*
+ * get random float value amount [start, end)
+ */
+var randFloat = function(start, end) {
   return start + Math.random() * (end - start);
 };
 
-var rand = function(a, b) {
-  return Math.round(Math.random() * (b - a)) + a;
+/*
+ * get random integer value amount [start, end)
+ */
+var randInt = function(start, end) {
+  return Math.floor(Math.random() * (end - start)) + start;
 }
 
-exports.getCode = function(callback) {
+exports.Generate = function() {
   var W = 90;
   var H = 30;
   var canvas = new Canvas(W, H);
@@ -22,32 +28,32 @@ exports.getCode = function(callback) {
   ctx.font = '15px sans-serif';
 
   for (var i = 0; i < 10; i++) {
-    ctx.fillStyle = 'rgb(' + rand(150, 225) + ',' + rand(150, 225) + ',' + rand(150, 225) + ')';
+    ctx.fillStyle = 'rgb(' + randInt(150, 225) + ',' + randInt(150, 225) + ',' + randInt(150, 225) + ')';
     for (var j = 0; j < 5; j++) {
-      ctx.fillText(items[rand(0, items.length - 1)], getRandom(-10, W + 10), getRandom(-10, H + 10));
+      ctx.fillText(items[randFloat(0, items.length)], randFloat(-10, W + 10), randFloat(-10, H + 10));
     }
   }
 
-  var color = 'rgb(' + rand(1, 120) + ',' + rand(1, 120) + ',' + rand(1, 120) + ')';
+  var color = 'rgb(' + randInt(1, 120) + ',' + randInt(1, 120) + ',' + randInt(1, 120) + ')';
   ctx.font = 'bold 30px sans-serif';
   for (var i = 0; i < 4; i++) {
-    var j = rand(0, items.length - 1);
+    var j = randInt(0, items.length);
     ctx.fillStyle = color;
     ctx.fillText(items[j], 5 + i * 23, 25);
-    var a = getRandom(0.85, 0.95);
-    var b = getRandom(-0.04, 0.04);
-    var c = getRandom(-0.3, 0.3);
-    var d = getRandom(0.85, 1.0);
+    var a = randFloat(0.85, 1.0);
+    var b = randFloat(-0.04, 0);
+    var c = randFloat(-0.3, 0.3);
+    var d = randFloat(0.85, 1.0);
     ctx.transform(a, b, c, d, 0, 0);
     vcode += items[j];
   }
 
   ctx.beginPath();
   ctx.strokeStyle = color;
-  var A = getRandom(10, H / 2);
-  var b = getRandom(H / 4, 3 * H / 4);
-  var f = getRandom(H / 4, 3 * H / 4);
-  var T = getRandom(H * 1.5, W);
+  var A = randFloat(10, H / 2);
+  var b = randFloat(H / 4, 3 * H / 4);
+  var f = randFloat(H / 4, 3 * H / 4);
+  var T = randFloat(H * 1.5, W);
   var w = 2 * Math.PI / T;
   var S = function(x) {
     return A * Math.sin(w * x + f) + b;
@@ -60,5 +66,8 @@ exports.getCode = function(callback) {
   ctx.closePath();
   ctx.stroke();
 
-  return callback(vcode.toLowerCase(), '<img src="' + canvas.toDataURL() + '"/>');
+  return {
+    code: vcode.toLowerCase(),
+    dataURL: canvas.toDataURL()
+  };
 };
