@@ -30,7 +30,7 @@ exports.Generate = function() {
   for (var i = 0; i < 10; i++) {
     ctx.fillStyle = 'rgb(' + randInt(150, 225) + ',' + randInt(150, 225) + ',' + randInt(150, 225) + ')';
     for (var j = 0; j < 5; j++) {
-      ctx.fillText(items[randFloat(0, items.length)], randFloat(-10, W + 10), randFloat(-10, H + 10));
+      ctx.fillText(items[randInt(0, items.length)], randFloat(-10, W + 10), randFloat(-10, H + 10));
     }
   }
 
