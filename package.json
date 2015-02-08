@@ -11,7 +11,7 @@
     "node": "*"
   },
   "dependencies": {
-    "canvas": "*"
+    "canvas": "1.1.*"
   },
   "devDependencies": {},
   "keywords": [
